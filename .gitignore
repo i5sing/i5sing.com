@@ -1,0 +1,5 @@
+npm-debug.log
+.idea/
+dist/
+__MAC_OSX/
+node_modules/

@@ -13,7 +13,7 @@ export async function getLatestApp(platform) {
         SELECT 
             id, version, platform, name, status, url 
         FROM app 
-        WHERE platform = '${platform || 'darwin'}'  
+        WHERE platform = '${platform || 'darwin'} and status = 'enable''  
         ORDER BY version DESC 
         LIMIT 0, 1`;
 
@@ -36,7 +36,24 @@ export async function getSpecificVersionApp(platform, version) {
         SELECT 
             id, version, platform, name, status, url 
         FROM app 
-        WHERE platform = '${platform || 'darwin'}' and version = '${version}'`;
+        WHERE platform = '${platform || 'darwin'}' and version = '${version}' and status = 'enable'`;
+
+    return await query(sql);
+}
+
+/**
+ * check whether the specific version's app is the latest one or not
+ * @param platform
+ * @param version
+ * @returns {Promise}
+ */
+export async function checkVersion(platform, version) {
+    const sql = `
+        SELECT 
+            id, version, platform, name, status, url 
+        FROM app 
+        WHERE platform = '${platform || 'darwin'}' and version > '${version}' and status = 'enable'
+        ORDER BY version DESC`;
 
     return await query(sql);
 }

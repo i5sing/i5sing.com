@@ -1,3 +1,9 @@
+server:
+  development:
+    port: 3033
+  production:
+    port: 3033
+
 mysql:
   development:
     host: 115.28.0.166

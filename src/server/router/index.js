@@ -15,6 +15,7 @@ export default class Router {
         this.router.get('/', homeController.getHomePage);
         this.router.get('/download/:platform', downloadController.download);
         this.router.get('/download/:platform/:version', downloadController.download);
+        this.router.get('/check-version/:platform/:version', downloadController.checkVersion);
         return this.router;
     }
 }

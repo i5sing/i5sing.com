@@ -8,9 +8,10 @@ import Koa from 'koa';
 import Mount from 'koa-mount';
 import Vue from 'vue';
 import KoaViews from 'koa-views';
-import Static from 'koa-serve-static';
+import Static from 'koa-static';
 
 import {init} from './render/render';
+import serverConfig from '../server/config/server';
 
 import Router from './router';
 
@@ -29,13 +30,8 @@ appServer.use(KoaViews(`${__dirname}/views`, {
 }));
 
 if (process.env.NODE_ENV === 'production') {
-    Static.staticCacheControl='public';
     staticServer.use(Static(path.join(__dirname, '../../dist'), {
-        // maxAge: 2592000,
-        setHeaders: function (res, path) {
-            // Custom Cache-Control for HTML files
-            res.setHeader('Cache-Control', 'public, max-age=' + 24 * 60 * 60 * 1000)
-    }
+        maxAge: 2592000,
     }));
 }
 
@@ -43,4 +39,4 @@ appServer.use(router.routes(), router.allowedMethods());
 
 app.use(Mount('/', appServer));
 app.use(Mount('/dist', staticServer));
-app.listen(3033);
+app.listen(serverConfig.port || 3033);

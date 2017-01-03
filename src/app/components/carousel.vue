@@ -1,12 +1,12 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-    <div class="carousel">
+    <article class="carousel">
         <div class="coming image">
             <div class="title wow slide-in-up" data-wow-delay="0.5s">轻盈上线</div>
             <div class="subtitle wow slide-in-up" data-wow-delay="1s">清新、极简，呈现全新体验方式</div>
         </div>
         <div class="carousel-arrows">
-            <span class="arrow arrow-left image" v-on:click="next(loopIndex - 1)"/>
-            <span class="arrow arrow-right image" v-on:click="next(loopIndex + 1)"/>
+            <span class="arrow arrow-left image" v-on:click="next(loopIndex - 1)"></span>
+            <span class="arrow arrow-right image" v-on:click="next(loopIndex + 1)"></span>
         </div>
         <div class="wrapper">
             <div class="carousel-wrapper">
@@ -19,10 +19,10 @@
             <span v-for="carousel in carousels" :class="carousel.className"
                   :key="carousel.key" v-on:click="next(carousel.key)"></span>
         </div>
-    </div>
+    </article>
 </template>
 <script>
-    import getLang from '../lang';
+    import getLang from '../../resources/lang';
 
     export default {
         props: ['language'],

@@ -1,5 +1,5 @@
 <template>
-    <div class="slogan">
+    <article class="slogan">
         <div class="slogan-content">
             <div class="slogan-left">
                 <div class="subtitle wow slide-in-right">
@@ -17,10 +17,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </article>
 </template>
 <script>
-    import getLang from '../lang';
+    import getLang from '../../resources/lang';
 
     export default {
         props: ['language'],

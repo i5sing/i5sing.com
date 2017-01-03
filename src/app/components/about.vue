@@ -1,13 +1,13 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-    <div class="about image">
+    <article class="about image">
         <div class="desc wow slide-in-up">
             {{lang.about.DESCRIPTION}}
         </div>
         <Btn v-on:click="download()">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
-    </div>
+    </article>
 </template>
 <script>
-    import getLang from '../lang';
+    import getLang from '../../resources/lang';
     import * as Btn from './button.vue';
 
     export default {
@@ -22,7 +22,7 @@
         },
         methods: {
             download: function () {
-                window.open("");
+                window.open("./download/darwin", "_blank");
             }
         },
         components: {Btn}

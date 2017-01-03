@@ -1,0 +1,17 @@
+mysql:
+  development:
+    host: 115.28.0.166
+    user: root
+    password: zhaofeng217
+    connectionLimit: 20
+    queueLimit: 500
+    database: i5sing-web
+    port: 3317
+  production:
+    host: 127.0.0.1
+    user: root
+    password: zhaofeng217
+    connectionLimit: 20
+    queueLimit: 500
+    database: i5sing-web
+    port: 3306

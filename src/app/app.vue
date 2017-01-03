@@ -24,5 +24,5 @@
         color: #121f27;
     }
 
-    @import "../../less/index.less";
+    @import "../resources/less/index.less";
 </style>

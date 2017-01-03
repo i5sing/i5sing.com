@@ -1,5 +1,5 @@
 <template>
-    <div class="footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-left">
                 <a href="http://i5sing.com">i5SING</a>&nbsp;&nbsp;
@@ -12,7 +12,7 @@
                 <a href="http://yedaodao.com" target="_blank">叶刀刀</a>
             </div>
         </div>
-    </div>
+    </footer>
 </template>
 <script>
 

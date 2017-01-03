@@ -6,7 +6,7 @@
     </button>
 </template>
 <script>
-    import getLang from '../lang';
+    import getLang from '../../resources/lang';
 
     export default {
         props: ['language'],

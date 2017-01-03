@@ -1,5 +1,5 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-    <div class="banner image" id="banner">
+    <article class="banner image" id="banner">
         <div class="wrapper">
             <div class="logo image wow slide-in-up"></div>
             <div class="subtitle wow slide-in-up" data-wow-delay="0.5s">
@@ -7,10 +7,10 @@
             </div>
             <Btn v-on:click="download()">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
         </div>
-    </div>
+    </article>
 </template>
 <script>
-    import getLang from '../lang';
+    import getLang from '../../resources/lang';
     import * as Btn from './button.vue';
 
     export default {
@@ -33,7 +33,7 @@
         },
         methods: {
             download: function () {
-                window.open("");
+                window.open("./download/darwin", "_blank");
             }
         },
         components: {Btn}

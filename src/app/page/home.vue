@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <main>
         <Banner/>
         <Slogan/>
         <Carousel/>
         <About/>
         <MyFooter/>
-    </div>
+    </main>
 </template>
 <script>
     import * as Banner from '../components/banner.vue';

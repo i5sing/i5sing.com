@@ -1,5 +1,5 @@
 /**
- * Created by zhaofeng on 2016/12/29.
+ * Created by zhaofeng on 2017/1/3.
  */
 import * as zhCN from './zh-CN';
 import * as enUS from './en-US';

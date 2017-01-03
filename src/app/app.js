@@ -4,7 +4,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from './vuex';
-import App from './components/app.vue';
+import App from './app.vue';
 
 import router from './router/index';
 

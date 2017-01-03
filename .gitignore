@@ -3,3 +3,5 @@ npm-debug.log
 dist/
 __MAC_OSX/
 node_modules/
+.nyc_output/
+coverage/

@@ -15,8 +15,8 @@ import {init} from './render/render';
 import Router from './router';
 
 process.env.VUE_ENV = 'server';
-
 global.Vue = Vue;
+
 const app = new Koa();
 const appServer = new Koa();
 const staticServer = new Koa();

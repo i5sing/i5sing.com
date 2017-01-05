@@ -3,6 +3,7 @@
  */
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 let vueConfig = {
     postcss: [
@@ -15,7 +16,8 @@ let vueConfig = {
 module.exports = {
     devtool: '#source-map',
     entry: {
-        app: './src/app/client-entry.js'
+        app: './src/app/client-entry.js',
+        lib: ['vue', 'vue-router', 'vuex', 'wowjs']
     },
     output: {
         path: path.resolve(__dirname, '../dist'),
@@ -49,6 +51,10 @@ module.exports = {
                     limit: 10000,
                     name: '[name].[ext]?[hash]'
                 }
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             }
         ]
     },
@@ -62,18 +68,17 @@ module.exports = {
             jQuery: "jquery",
             "window.jQuery": "jquery"
         }),
-
-        //将类库文件进行分开打包,便于缓存
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendor',
-        //     filename: 'client-vendor-bundle.js'
-        // })
+        new HtmlWebpackPlugin({
+            template: './src/server/views/index.html',
+            filename: 'views/index.html'
+        })
     ]
 };
 
 if (process.env.NODE_ENV === 'production') {
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+    module.exports.output.filename = 'client-bundle.[hash].js';
 
     vueConfig.loaders = {
         less: ExtractTextPlugin.extract({
@@ -87,7 +92,7 @@ if (process.env.NODE_ENV === 'production') {
     };
 
     module.exports.plugins.push(
-        new ExtractTextPlugin('styles.css'),
+        new ExtractTextPlugin('styles.[contenthash].css'),
         // this is needed in webpack 2 for minifying CSS
         new webpack.LoaderOptionsPlugin({
             minimize: true
@@ -97,6 +102,19 @@ if (process.env.NODE_ENV === 'production') {
             compress: {
                 warnings: false
             }
+        }),
+        //将类库文件进行分开打包,便于缓存
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'lib',
+            filename: 'lib-bundle.[hash].js'
+        })
+    )
+} else {
+    module.exports.plugins.push(
+        //将类库文件进行分开打包,便于缓存
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'lib',
+            filename: 'lib-bundle.js'
         })
     )
 }

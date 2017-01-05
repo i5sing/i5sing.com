@@ -9,7 +9,7 @@
             return {}
         },
         mounted() {
-            new WOW().init();
+
         },
         methods: {},
         components: {}
@@ -19,7 +19,7 @@
     html, body {
         margin: 0;
         padding: 0;
-        min-width: 980px;
+        min-width: 1000px;
         font-family: "PingFangSC-Light", "Microsoft YaHei", "微软雅黑", sans-serif;
         color: #121f27;
     }

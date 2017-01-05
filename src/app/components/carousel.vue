@@ -12,7 +12,7 @@
             <div class="carousel-wrapper">
                 <img v-for="carousel in carousels"
                      :key="carousel.key" :class="carousel.className"
-                     :src="carousel.url" width="650" height="450">
+                     :data-original="carousel.url" width="650" height="450">
             </div>
         </div>
         <div class="carousel-bar">
@@ -115,6 +115,7 @@
 
                 this.carouselMap[this.loopIndex].className = 'current';
                 this.loop();
+                window.lazyload.update();
             }
         },
         components: {}

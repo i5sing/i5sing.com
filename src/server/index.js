@@ -25,13 +25,17 @@ const router = new Router();
 
 init(appServer);
 
-appServer.use(KoaViews(`${__dirname}/views`, {
-    map: {html: 'ejs'}
-}));
-
 if (process.env.NODE_ENV === 'production') {
+    appServer.use(KoaViews(path.join(__dirname, '../../dist/views'), {
+        map: {html: 'ejs'}
+    }));
+
     staticServer.use(Static(path.join(__dirname, '../../dist'), {
         maxAge: 2592000,
+    }));
+} else {
+    appServer.use(KoaViews(path.join(__dirname, './views'), {
+        map: {html: 'ejs'}
     }));
 }
 

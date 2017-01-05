@@ -4,6 +4,8 @@
 import BaseController from './base';
 import {getRenderer} from '../render/render';
 
+const env = process.env.NODE_ENV;
+
 export default class HomeController extends BaseController {
     constructor() {
         super();
@@ -19,8 +21,8 @@ export default class HomeController extends BaseController {
             console.log(e);
         }
 
-        await ctx.render('index.html', {
-            initialState: JSON.stringify(context.initialState || {}),
+        await ctx.render(env == 'production' ? 'index.html' : 'index.dev.html', {
+            initialState: JSON.stringify(context.initialState || {}).replace(/"/g, '\\"'),
             app: html
         });
     }

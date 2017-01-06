@@ -79,7 +79,7 @@ if (process.env.NODE_ENV === 'production') {
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
     module.exports.output.filename = 'client-bundle.[hash].js';
-    module.exports.output.publicPath = 'http://static.i5sing.com/';
+    // module.exports.output.publicPath = 'http://static.i5sing.com/';
 
     vueConfig.loaders = {
         less: ExtractTextPlugin.extract({

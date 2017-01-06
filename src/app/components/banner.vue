@@ -35,7 +35,7 @@
         },
         methods: {
             download: function () {
-                window.open("./download/darwin", "_blank");
+                window.open("http://static.i5sing.com/app/mac_0.0.1.zip", "_blank");
             }
         },
         components: {Btn}

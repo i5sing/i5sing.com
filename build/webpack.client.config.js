@@ -48,8 +48,8 @@ module.exports = {
                 test: /\.(png|jpg|gif|svg|eot|woff2|woff|ttf)$/,
                 loader: 'url-loader',
                 options: {
-                    limit: 10000,
-                    name: '[name].[ext]?[hash]'
+                    limit: 50000,
+                    name: 'images/[name].[ext]?[hash]'
                 }
             },
             {
@@ -79,6 +79,7 @@ if (process.env.NODE_ENV === 'production') {
     const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
     module.exports.output.filename = 'client-bundle.[hash].js';
+    module.exports.output.publicPath = 'http://static.i5sing.com/';
 
     vueConfig.loaders = {
         less: ExtractTextPlugin.extract({
@@ -92,7 +93,7 @@ if (process.env.NODE_ENV === 'production') {
     };
 
     module.exports.plugins.push(
-        new ExtractTextPlugin('styles.[contenthash].css'),
+        new ExtractTextPlugin('style/styles.[contenthash].css'),
         // this is needed in webpack 2 for minifying CSS
         new webpack.LoaderOptionsPlugin({
             minimize: true

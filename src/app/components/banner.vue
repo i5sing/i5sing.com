@@ -1,13 +1,15 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-    <article class="banner image" id="banner">
-        <div class="wrapper">
-            <div class="logo image wow slide-in-up"></div>
-            <div class="subtitle wow slide-in-up" data-wow-delay="0.5s">
-                {{lang.banner.SUB_TITLE}}
+    <div class="banner-wrapper image">
+        <article class="banner image" id="banner">
+            <div class="wrapper">
+                <div class="logo image wow slide-in-up"></div>
+                <div class="subtitle wow slide-in-up" data-wow-delay="0.5s">
+                    {{lang.banner.SUB_TITLE}}
+                </div>
+                <Btn v-on:click="download()">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
             </div>
-            <Btn v-on:click="download()">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
-        </div>
-    </article>
+        </article>
+    </div>
 </template>
 <script>
     import getLang from '../../resources/lang';
@@ -45,6 +47,10 @@
         width: 100%;
         background-size: cover;
         height: 1000px;
+    }
+
+    .banner-wrapper {
+        background-size: cover;
     }
 
     .banner .wrapper {

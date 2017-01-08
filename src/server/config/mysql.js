@@ -16,11 +16,11 @@ const env = process.env;
 export const pool = Mysql.createPool({
     connectionLimit: mysql.connectionLimit,
     queueLimit: mysql.queueLimit,
-    host: mysql.host || env.MYSQL_HOST,
-    port: mysql.port || env.MYSQL_PORT,
-    user: mysql.user || env.MYSQL_USER,
-    password: mysql.password || env.MYSQL_PASSWORD,
-    database: mysql.database || env.MYSQL_DATABASE
+    host: env.MYSQL_HOST || mysql.host,
+    port: env.MYSQL_PORT || mysql.port,
+    user: env.MYSQL_USER || mysql.user,
+    password: env.MYSQL_PASSWORD || mysql.password,
+    database: env.MYSQL_DATABASE || mysql.database
 });
 
 /**

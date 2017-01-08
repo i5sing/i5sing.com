@@ -6,18 +6,22 @@ server:
 
 mysql:
   development:
-    host: 127.0.0.1
+    host: localhost
     user: root
     password: root
     connectionLimit: 20
     queueLimit: 500
-    database: i5sing-web
-    port: 3317
-  production:
-    host: 127.0.0.1
-    user: root
-    password: root
-    connectionLimit: 20
-    queueLimit: 500
-    database: i5sing-web
+    database: i5sing
     port: 3306
+  production:
+    host: localhost
+    user: root
+    password: root
+    connectionLimit: 20
+    queueLimit: 500
+    database: i5sing
+    port: 3306
+qiniu:
+  bucket: i5sing
+  access_key: access_key
+  secret_key: secret_key

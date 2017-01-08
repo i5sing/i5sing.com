@@ -12,6 +12,7 @@ import Static from 'koa-static';
 
 import {init} from './render/render';
 import serverConfig from '../server/config/server';
+import syncToCDN from './config/qiniu';
 
 import Router from './router';
 
@@ -23,6 +24,7 @@ const appServer = new Koa();
 const staticServer = new Koa();
 const router = new Router();
 
+syncToCDN();
 init(appServer);
 
 if (process.env.NODE_ENV === 'production') {

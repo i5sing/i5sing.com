@@ -24,7 +24,6 @@ const appServer = new Koa();
 const staticServer = new Koa();
 const router = new Router();
 
-syncToCDN();
 init(appServer);
 
 if (process.env.NODE_ENV === 'production') {
@@ -35,6 +34,8 @@ if (process.env.NODE_ENV === 'production') {
     staticServer.use(Static(path.join(__dirname, '../../dist'), {
         maxAge: 2592000,
     }));
+
+    syncToCDN();
 } else {
     appServer.use(KoaViews(path.join(__dirname, './views'), {
         map: {html: 'ejs'}

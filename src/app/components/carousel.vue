@@ -107,11 +107,11 @@
                     this.carouselMap[this.carousels.length - 1].className = 'pre';
                 }
 
-                if (this.loopIndex + 1 < this.carousels.length) {
-                    this.carouselMap[this.loopIndex + 1].className = 'next';
-                } else {
-                    this.carouselMap[0].className = 'next';
-                }
+                    if (this.loopIndex + 1 < this.carousels.length) {
+                        this.carouselMap[this.loopIndex + 1].className = 'next';
+                    } else {
+                        this.carouselMap[0].className = 'next';
+                    }
 
                 this.carouselMap[this.loopIndex].className = 'current';
                 this.loop();
@@ -161,11 +161,12 @@
         position: absolute;
         top: 0;
         left: 50%;
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 0) scale(0.9, 0.9);
         transition-property: transform;
         transition-duration: 0.2s;
         box-shadow: 0 0 20px 0 rgba(111, 111, 109, 0.2);
         transition-timing-function: linear;
+        z-index: 80
     }
 
     .carousel .carousel-wrapper img.current {
@@ -182,11 +183,12 @@
         top: 0;
         left: 50%;
         opacity: 0.5;
+        z-index: 90;
         transform: translate(-50%, 0) translate(-100px, 0) scale(0.9, 0.9);
     }
 
     .carousel .carousel-wrapper img.none {
-        display: none;
+        visibility: hidden;
     }
 
     .carousel .carousel-wrapper img.next {

@@ -25,8 +25,7 @@ export async function getApp(platform, version) {
 
     // open transaction
     const conn = await beginTransaction();
-
-    const appId = app.app_id;
+    const appId = app.id;
     try {
         const statistic = await statisticStore.getStatisticByAppId(conn, appId);
         if (statistic) {
@@ -55,6 +54,6 @@ export async function getApp(platform, version) {
  */
 function checkVersion(version) {
     if (!version) return false;
-    version = version.replace(/\\./g, '').parseInt();
+    version = parseInt(version.replace(/\\./g, ''));
     return !isNaN(version);
 }

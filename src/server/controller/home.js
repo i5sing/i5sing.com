@@ -3,6 +3,7 @@
  */
 import BaseController from './base';
 import {getRenderer} from '../render/render';
+import * as infoService from '../service/info';
 
 const env = process.env.NODE_ENV;
 
@@ -21,9 +22,14 @@ export default class HomeController extends BaseController {
             console.log(e);
         }
 
+        const info = await infoService.getInfo();
+        const keyword = await infoService.getKeywords();
+
         await ctx.render(env == 'production' ? 'index.html' : 'index.dev.html', {
             initialState: JSON.stringify(context.initialState || {}).replace(/"/g, '\\"'),
-            app: html
+            app: html,
+            info: info,
+            keyword: keyword
         });
     }
 }

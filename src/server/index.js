@@ -43,4 +43,4 @@ appServer.use(router.routes(), router.allowedMethods());
 
 app.use(Mount('/', appServer));
 app.use(Mount('/dist', staticServer));
-app.listen(serverConfig.port || 3033);
+app.listen(serverConfig.port || process.env.PORT);

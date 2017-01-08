@@ -13,7 +13,7 @@ export async function getLatestApp(platform) {
         SELECT 
             id, version, platform, name, status, url 
         FROM app 
-        WHERE platform = '${platform || 'darwin'} and status = 'enable''  
+        WHERE platform = '${platform || 'darwin'}' and status = 'enable'  
         ORDER BY version DESC 
         LIMIT 0, 1`;
 

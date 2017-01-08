@@ -1,9 +1,9 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml">
+<template>
     <article class="about image">
         <div class="desc wow slide-in-up">
             {{lang.about.DESCRIPTION}}
         </div>
-        <Btn v-on:click="download()">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
+        <Btn :action="download">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
     </article>
 </template>
 <script>
@@ -22,7 +22,7 @@
         },
         methods: {
             download: function () {
-                window.open("http://static.i5sing.com/app/mac_0.0.1.zip", "_blank");
+                window.open("./download/darwin");
             }
         },
         components: {Btn}

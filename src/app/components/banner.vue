@@ -1,4 +1,4 @@
-<template xmlns:v-on="http://www.w3.org/1999/xhtml">
+<template>
     <div class="banner-wrapper image">
         <article class="banner image" id="banner">
             <div class="wrapper">
@@ -6,7 +6,7 @@
                 <div class="subtitle wow slide-in-up" data-wow-delay="0.5s">
                     {{lang.banner.SUB_TITLE}}
                 </div>
-                <Btn v-on:click="download()">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
+                <Btn :action="download">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
             </div>
         </article>
     </div>
@@ -35,7 +35,8 @@
         },
         methods: {
             download: function () {
-                window.open("http://static.i5sing.com/app/mac_0.0.1.zip", "_blank");
+                console.log("download")
+                window.open("./download/darwin");
             }
         },
         components: {Btn}

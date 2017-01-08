@@ -7,6 +7,7 @@ import path from 'path';
 
 const config = Yml.load(path.resolve(__dirname, '../../../', 'application.yml'));
 const mysql = config.mysql[process.env.NODE_ENV] || {};
+const env = process.env;
 
 /**
  * mysql connection pool.
@@ -15,11 +16,11 @@ const mysql = config.mysql[process.env.NODE_ENV] || {};
 export const pool = Mysql.createPool({
     connectionLimit: mysql.connectionLimit,
     queueLimit: mysql.queueLimit,
-    host: mysql.host,
-    port: mysql.port,
-    user: mysql.user,
-    password: mysql.password,
-    database: mysql.database
+    host: mysql.host || env.MYSQL_HOST,
+    port: mysql.port || env.MYSQL_PORT,
+    user: mysql.user || env.MYSQL_USER,
+    password: mysql.password || env.MYSQL_PASSWORD,
+    database: mysql.database || env.MYSQL_DATABASE
 });
 
 /**
@@ -52,6 +53,24 @@ export async function query(sql, params = []) {
             }
             resolve(rows);
             conn.release();
+        })
+    })
+}
+
+/**
+ * execute sql.
+ * @param conn
+ * @param sql
+ * @param params
+ * @returns {Promise}
+ */
+export async function connectionQuery(conn, sql, params = []) {
+    return new Promise((resolve, reject) => {
+        conn.query(sql, params, (err, rows) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(rows);
         })
     })
 }

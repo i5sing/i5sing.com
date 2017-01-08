@@ -1,7 +1,7 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <button type="button" data-wow-delay="0.5s"
             class="btn download-btn download-bg wow slide-in-up"
-            v-on:click="download()">
+            v-on:click="action()">
         {{lang.about.DOWNLOAD_BUTTON}}
     </button>
 </template>
@@ -9,7 +9,7 @@
     import getLang from '../../resources/lang';
 
     export default {
-        props: ['language'],
+        props: ['language', 'action'],
         data (){
             return {
                 lang: getLang("en-US")
@@ -17,11 +17,6 @@
         },
         beforeUpdate: function () {
             this.lang = getLang(this.lang);
-        },
-        methods: {
-            download: function () {
-                window.open("");
-            }
         },
         components: {}
     }

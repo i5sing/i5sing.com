@@ -9,3 +9,6 @@ echo -e "\033[32m \n> building client bundle. \033[0m"
 npm run build:client
 
 echo -e "\033[32m \n> build success! \033[0m"
+
+node ./build/qiniu.js
+echo -e "\033[32m \n> publish to cdn success! \033[0m"

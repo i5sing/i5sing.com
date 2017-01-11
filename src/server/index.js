@@ -8,7 +8,7 @@ import Koa from 'koa';
 import Mount from 'koa-mount';
 import Vue from 'vue';
 import KoaViews from 'koa-views';
-import Static from 'koa-static';
+// import Static from 'koa-static';
 
 import {init} from './render/render';
 import serverConfig from '../server/config/server';
@@ -31,10 +31,6 @@ if (process.env.NODE_ENV === 'production') {
         map: {html: 'ejs'}
     }));
 
-    staticServer.use(Static(path.join(__dirname, '../../dist'), {
-        maxAge: 2592000,
-    }));
-
     syncToCDN();
 } else {
     appServer.use(KoaViews(path.join(__dirname, './views'), {
@@ -46,4 +42,4 @@ appServer.use(router.routes(), router.allowedMethods());
 
 app.use(Mount('/', appServer));
 app.use(Mount('/dist', staticServer));
-app.listen(serverConfig.port || process.env.PORT);
+app.listen(process.env.PORT || serverConfig.port);

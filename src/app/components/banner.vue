@@ -6,7 +6,10 @@
                 <div class="subtitle wow slide-in-up" data-wow-delay="0.5s">
                     {{lang.banner.SUB_TITLE}}
                 </div>
-                <Btn :action="download">{{lang.about.DOWNLOAD_BUTTON}}</Btn>
+                <div class="btn-group banner-btn-group image wow slide-in-up" data-wow-delay="0.7s">
+                    <Btn :action="downloadMac" :value="lang.banner.DOWNLOAD_MAC_BUTTON" type="mac"/>
+                    <Btn :action="downloadWin" :value="lang.banner.DOWNLOAD_WIN_BUTTON" type="win"/>
+                </div>
             </div>
         </article>
     </div>
@@ -34,13 +37,16 @@
             });
         },
         methods: {
-            download: function () {
-                console.log("download")
+            downloadMac: function () {
                 window.open("./download/darwin");
+            },
+            downloadWin: function () {
+                window.open("./download/win32");
             }
         },
         components: {Btn}
     }
+
 </script>
 <style lang="less" scoped>
     .banner {
@@ -70,15 +76,21 @@
     }
 
     .banner .subtitle {
-        margin: 35px auto 0 auto;
+        margin: 25px auto 0 auto;
         color: #fffefe;
-        font-size: 18px;
+        font-size: 16px;
         background-size: 473px 29px;
         width: 473px;
         height: 29px;
     }
 
     .banner .download-btn {
-        margin-top: 85px;
+        margin-top: 40px;
+    }
+
+    .banner .banner-btn-group {
+        margin-top: 40px;
+        height: 130px;
+        width: 515px;
     }
 </style>

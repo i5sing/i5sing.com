@@ -39,7 +39,7 @@
 <style lang="less" scoped>
     .slogan {
         position: relative;
-        font-size: 13px;
+        font-size: 14px;
         text-align: center;
         background-color: rgba(243, 111, 135, 0.078);
         width: 100%;
@@ -68,7 +68,7 @@
     }
 
     .slogan .title {
-        font-size: 25px;
+        font-size: 26px;
     }
 
     .slogan .slogan-left {

@@ -1,43 +1,52 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-    <button type="button" data-wow-delay="0.5s"
-            class="btn download-btn download-bg wow slide-in-up"
-            v-on:click="action()">
-        {{lang.about.DOWNLOAD_BUTTON}}
+    <button type="button" class="btn download-btn download-bg" v-on:click="action()">
+        <svg v-show="type == 'mac'" xmlns="http://www.w3.org/2000/svg" width="18px" height="20px" viewBox="0 0 35 40"
+             style="vertical-align: text-top; padding-top: 0; padding-right: 10px;">
+            <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                  d="M29.831,17.749 C29.476,18.611 29.272,19.519 29.211,20.434 C29.150,21.350 29.234,22.273 29.456,23.165 C29.677,24.057 30.037,24.920 30.528,25.713 C31.019,26.507 31.642,27.233 32.391,27.851 C33.139,28.470 34.013,28.983 35.006,29.352 C34.050,31.435 33.590,32.364 32.358,34.205 C31.976,34.777 31.558,35.381 31.107,35.973 C29.537,38.035 27.562,39.966 25.240,40.001 C25.232,40.001 25.223,40.001 25.214,40.001 C22.603,40.024 21.892,38.368 18.471,38.315 C18.396,38.314 18.319,38.313 18.241,38.314 C14.746,38.332 13.921,39.914 11.465,40.001 C8.804,40.095 6.780,38.035 5.303,36.100 C4.904,35.577 4.530,35.040 4.180,34.517 C3.775,33.912 3.401,33.298 3.057,32.678 C2.359,31.420 1.785,30.140 1.330,28.861 C0.871,27.574 0.534,26.288 0.314,25.032 C0.091,23.763 -0.012,22.524 -0.001,21.341 C0.010,20.141 0.139,18.999 0.382,17.944 C0.631,16.863 0.998,15.874 1.481,15.005 C1.978,14.110 2.624,13.285 3.347,12.554 C5.054,10.826 7.166,9.736 9.266,9.444 C9.644,9.391 10.021,9.365 10.396,9.365 C12.565,9.365 14.184,10.161 15.828,10.668 C16.597,10.905 17.371,11.079 18.209,11.079 C19.514,11.079 20.558,10.631 21.758,10.193 C22.906,9.774 24.196,9.364 25.995,9.364 C26.741,9.365 27.498,9.472 28.248,9.678 C30.295,10.241 32.284,11.543 33.820,13.424 C32.838,13.953 32.018,14.602 31.355,15.336 C30.692,16.069 30.187,16.886 29.831,17.749 ZM16.924,9.623 C16.489,7.295 17.607,4.901 18.960,3.287 C20.452,1.509 23.006,0.145 25.189,-0.002 C25.557,2.430 24.542,4.808 23.205,6.493 C21.773,8.298 19.307,9.695 16.924,9.623 Z"/>
+        </svg>
+        <svg v-show="type == 'win'" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 36 36"
+             style="vertical-align: text-top; padding-top: 2px; padding-right: 10px;">
+            <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
+                  d="M16.992,33.292 L16.992,18.995 L36.000,18.995 L36.000,36.000 L16.992,33.292 ZM16.992,2.708 L36.000,-0.001 L36.000,16.973 L16.992,16.973 L16.992,2.708 ZM-0.000,18.995 L15.014,18.995 L15.014,33.119 L-0.000,31.035 L-0.000,18.995 ZM-0.000,4.965 L15.014,2.881 L15.014,17.004 L-0.000,17.004 L-0.000,4.965 Z"/>
+        </svg>
+        {{value}}
     </button>
 </template>
 <script>
-    import getLang from '../../resources/lang';
-
     export default {
-        props: ['language', 'action'],
+        props: ['value', 'action', 'type'],
         data (){
             return {
-                lang: getLang("en-US")
+
             }
         },
         beforeUpdate: function () {
-            this.lang = getLang(this.lang);
+
         },
         components: {}
     }
+
 </script>
 <style lang="less" scoped>
     .btn {
+        margin: 0 8px;
         outline: none;
-        padding: 20px;
         border: none;
-        border-radius: 3px;
+        border-radius: 4px;
+        height: 50px;
+        width: 217px;
         cursor: pointer;
     }
 
     .btn.download-btn {
-        font-size: 18px;
+        font-size: 16px;
         color: #fff;
-        background-color: #f36f87;
-        box-shadow: 2px 2px 30px 10px rgba(243, 111, 135, 0.1);
+        background-color: #f77189;
+        /*box-shadow: 2px 2px 30px 10px rgba(243, 111, 135, 0.1);*/
     }
 
     .btn.download-btn:hover {
-        background-color: #ff6f87;
+        background-color: #ff7991;
     }
 </style>

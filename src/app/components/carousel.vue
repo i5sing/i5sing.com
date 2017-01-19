@@ -144,7 +144,7 @@
     }
 
     .carousel .coming .subtitle {
-        font-size: 13px;
+        font-size: 14px;
         padding-top: 10px;
         opacity: 0.7;
     }
@@ -166,7 +166,8 @@
         transition-duration: 0.2s;
         box-shadow: 0 0 20px 0 rgba(111, 111, 109, 0.2);
         transition-timing-function: linear;
-        z-index: 80
+        z-index: 80;
+        opacity: 0;
     }
 
     .carousel .carousel-wrapper img.current {
@@ -176,6 +177,7 @@
         transform: translate(-50%, 0);
         box-shadow: 0 0 40px 0 rgba(111, 111, 109, 0.2);
         z-index: 100;
+        opacity: 1;
     }
 
     .carousel .carousel-wrapper img.pre {
@@ -196,6 +198,7 @@
         top: 0;
         left: 50%;
         opacity: 0.5;
+        transition-duration: 0.2s;
         transform: translate(-50%, 0) translate(100px, 0) scale(0.9, 0.9);
     }
 

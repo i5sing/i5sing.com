@@ -5,24 +5,25 @@
             <div class="subtitle wow slide-in-up" data-wow-delay="1s">清新、极简，呈现全新体验方式</div>
         </div>
         <div class="carousel-arrows">
-            <span class="arrow arrow-left image" v-on:click="next(loopIndex - 1)"></span>
-            <span class="arrow arrow-right image" v-on:click="next(loopIndex + 1)"></span>
+            <span class="arrow arrow-left image" v-on:click="direct(loopIndex - 1)"></span>
+            <span class="arrow arrow-right image" v-on:click="direct(loopIndex + 1)"></span>
         </div>
         <div class="wrapper">
             <div class="carousel-wrapper">
-                <img v-for="carousel in carousels"
+                <img v-for="carousel in carousels" class="animated"
                      :key="carousel.key" :class="carousel.className"
                      :data-original="carousel.url" width="650" height="450">
             </div>
         </div>
         <div class="carousel-bar">
             <span v-for="carousel in carousels" :class="carousel.className"
-                  :key="carousel.key" v-on:click="next(carousel.key)"></span>
+                  :key="carousel.key" v-on:click="direct(carousel.key)"></span>
         </div>
     </article>
 </template>
 <script>
     import getLang from '../../resources/lang';
+    import PageManager from '../lib/PageManager';
 
     export default {
         props: ['language'],
@@ -75,9 +76,13 @@
             });
         },
         mounted() {
-            this.loop();
+//            this.loop();
+            this.initPage();
         },
         methods: {
+            initPage() {
+                this.pageManager = new PageManager(this.carousels);
+            },
             loop() {
                 this.loopId = setInterval(() => {
                     this.next(this.loopIndex);
@@ -92,30 +97,9 @@
                 });
             },
 
-            next(key) {
-                this.reset();
-                if (this.loopId) clearInterval(this.loopId);
-
-                key = parseInt(key);
-                if (key < 0) this.loopIndex = this.carousels.length - 1;
-                else if (key >= this.carousels.length) this.loopIndex = 0;
-                else this.loopIndex = key;
-
-                if (this.loopIndex - 1 >= 0) {
-                    this.carouselMap[this.loopIndex - 1].className = 'pre';
-                } else {
-                    this.carouselMap[this.carousels.length - 1].className = 'pre';
-                }
-
-                if (this.loopIndex + 1 < this.carousels.length) {
-                    this.carouselMap[this.loopIndex + 1].className = 'next';
-                } else {
-                    this.carouselMap[0].className = 'next';
-                }
-
-                this.carouselMap[this.loopIndex].className = 'current';
-                this.loop();
-                window.lazyload.update();
+            direct(key) {
+                let direction = this.pageManager.getDirection(key);
+                this.pageManager.go(key);
             }
         },
         components: {}
@@ -166,7 +150,6 @@
         z-index: 80;
         opacity: 0;
         user-select: none;
-        animation-timing-function: ease;
     }
 
     .carousel .carousel-wrapper img.current {
@@ -176,8 +159,6 @@
         transform: translate(-50%, 0);
         box-shadow: 0 0 40px 0 rgba(111, 111, 109, 0.2);
         z-index: 100;
-        opacity: 1;
-        animation: carousel-to-center .3s;
     }
 
     .carousel .carousel-wrapper img.pre {
@@ -187,7 +168,6 @@
         opacity: 0.5;
         z-index: 90;
         transform: translate(-50%, 0) translate(-100px, 0) scale(0.9, 0.9);
-        animation: carousel-to-left .3s;
     }
 
     .carousel .carousel-wrapper img.none {
@@ -200,7 +180,6 @@
         left: 50%;
         opacity: 0.5;
         transform: translate(-50%, 0) translate(100px, 0) scale(0.9, 0.9);
-        animation: carousel-to-right .3s;
     }
 
     .carousel .carousel-bar {

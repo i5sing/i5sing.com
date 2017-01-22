@@ -8,7 +8,10 @@
                 </div>
                 <div class="title wow slide-in-right">{{lang.slogan.LEFT_TITLE}}</div>
             </div>
-            <div class="slogan-center image"></div>
+            <div class="slogan-center image">
+                <div class="flower_front image" id="flower_front" data-rotation="0"></div>
+                <div class="flower_back image" id="flower_back" data-rotation="0"></div>
+            </div>
             <div class="slogan-right">
                 <div class="title wow slide-in-left">{{lang.slogan.RIGHT_TITLE}}</div>
                 <div class="subtitle wow slide-in-left">
@@ -21,6 +24,7 @@
 </template>
 <script>
     import getLang from '../../resources/lang';
+    import TWEEN from 'tween.js';
 
     export default {
         props: ['language'],
@@ -32,7 +36,45 @@
         beforeUpdate: function () {
             this.lang = getLang(this.lang);
         },
-        methods: {},
+        mounted: function () {
+            const that = this;
+            const flowerFrontEl = document.getElementById('flower_front');
+            const flowerBackEl = document.getElementById('flower_back');
+            const animationTime = 30000;
+
+            new TWEEN.Tween(flowerFrontEl.dataset)
+                .to({rotation: 360}, animationTime)
+                .repeat(Infinity)
+                .delay(0)
+                .onUpdate(function () {
+                    that.updateBox(flowerFrontEl, this);
+                })
+                .start();
+
+            new TWEEN.Tween(flowerBackEl.dataset)
+                .to({rotation: -360}, animationTime)
+                .repeat(Infinity)
+                .delay(0)
+                .onUpdate(function () {
+                    that.updateBox(flowerBackEl, this);
+                })
+                .start();
+
+            this.animate();
+        },
+        methods: {
+            animate: function (time) {
+                requestAnimationFrame(this.animate);
+                TWEEN.update(time);
+            },
+            updateBox: function (box, params) {
+                let s = box.style,
+                    transform = 'rotate(' + Math.floor(params.rotation) + 'deg)';
+                s.webkitTransform = transform;
+                s.mozTransform = transform;
+                s.transform = transform;
+            }
+        },
         components: {}
     }
 </script>
@@ -56,10 +98,27 @@
     }
 
     .slogan .slogan-center {
+        position: relative;
         display: inline-block;
-        background-size: 243px 243px;
         width: 243px;
         height: 243px;
+    }
+
+    .flower_front, .flower_back {
+        width: 243px;
+        height: 243px;
+        background-size: 243px 243px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .flower_front {
+        z-index: 1;
+    }
+
+    .flower_back {
+        opacity: 0.7;
     }
 
     .slogan .subtitle span {

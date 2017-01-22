@@ -1,8 +1,8 @@
 <template>
-    <article class="about">
+    <article class="about" id="about">
         <div id="wave"></div>
-        <div class="wave-bg">
-
+        <div class="wave-bg-external">
+            <div class="wave-bg-inner"></div>
         </div>
         <div class="desc wow slide-in-up">
             {{lang.about.DESCRIPTION}}
@@ -29,7 +29,7 @@
             this.lang = getLang(this.lang);
         },
         mounted: function () {
-            var waveEl = document.getElementById('wave');
+            const waveEl = document.getElementById('wave');
             this.siren = new Siren({
                 target: 'wave',
                 height: 200,
@@ -62,7 +62,7 @@
                         angleStep: 0.0055,
                         peak: 30,
                         isPositive: true
-                    },
+                    }
                 ]
             });
             this.siren.draw();
@@ -84,7 +84,7 @@
             }
         },
         components: {Btn}
-    }
+    };
 </script>
 <style lang="less" scoped>
     .about {
@@ -103,16 +103,17 @@
         width: 100%;
     }
 
-    .wave-bottom {
-        padding-top: 180px;
+    .wave-bg-external, .wave-bg-inner {
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+        background-color: #7cd5f4;
     }
 
-    .wave-bg {
+    .wave-bg-external {
         position: absolute;
         height: 450px;
-        width: 100%;
         top: 150px;
-        background-color: #7cd5f4;
         opacity: 0.3;
         z-index: -1;
     }

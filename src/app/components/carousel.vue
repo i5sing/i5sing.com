@@ -107,11 +107,11 @@
                     this.carouselMap[this.carousels.length - 1].className = 'pre';
                 }
 
-                    if (this.loopIndex + 1 < this.carousels.length) {
-                        this.carouselMap[this.loopIndex + 1].className = 'next';
-                    } else {
-                        this.carouselMap[0].className = 'next';
-                    }
+                if (this.loopIndex + 1 < this.carousels.length) {
+                    this.carouselMap[this.loopIndex + 1].className = 'next';
+                } else {
+                    this.carouselMap[0].className = 'next';
+                }
 
                 this.carouselMap[this.loopIndex].className = 'current';
                 this.loop();
@@ -162,12 +162,11 @@
         top: 0;
         left: 50%;
         transform: translate(-50%, 0) scale(0.9, 0.9);
-        transition-property: transform;
-        transition-duration: 0.2s;
         box-shadow: 0 0 20px 0 rgba(111, 111, 109, 0.2);
-        transition-timing-function: linear;
         z-index: 80;
         opacity: 0;
+        user-select: none;
+        animation-timing-function: ease;
     }
 
     .carousel .carousel-wrapper img.current {
@@ -178,6 +177,7 @@
         box-shadow: 0 0 40px 0 rgba(111, 111, 109, 0.2);
         z-index: 100;
         opacity: 1;
+        animation: carousel-to-center .3s;
     }
 
     .carousel .carousel-wrapper img.pre {
@@ -187,6 +187,7 @@
         opacity: 0.5;
         z-index: 90;
         transform: translate(-50%, 0) translate(-100px, 0) scale(0.9, 0.9);
+        animation: carousel-to-left .3s;
     }
 
     .carousel .carousel-wrapper img.none {
@@ -198,8 +199,8 @@
         top: 0;
         left: 50%;
         opacity: 0.5;
-        transition-duration: 0.2s;
         transform: translate(-50%, 0) translate(100px, 0) scale(0.9, 0.9);
+        animation: carousel-to-right .3s;
     }
 
     .carousel .carousel-bar {

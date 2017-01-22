@@ -8,7 +8,6 @@ import Koa from 'koa';
 import Mount from 'koa-mount';
 import Vue from 'vue';
 import KoaViews from 'koa-views';
-// import Static from 'koa-static';
 
 import {init} from './render/render';
 import serverConfig from '../server/config/server';

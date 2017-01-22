@@ -6,22 +6,22 @@ server:
 
 mysql:
   development:
-    host: localhost
-    user: root
-    password: root
+    host: example.com
+    user: username
+    password: password
     connectionLimit: 20
     queueLimit: 500
     database: i5sing
     port: 3306
   production:
-    host: localhost
-    user: root
-    password: root
+    host: example.com
+    user: username
+    password: password
     connectionLimit: 20
     queueLimit: 500
     database: i5sing
     port: 3306
 qiniu:
   bucket: i5sing
-  access_key: access_key
-  secret_key: secret_key
+  access_key: qiniukey
+  secret_key: qiniukey

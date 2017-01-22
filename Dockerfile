@@ -7,6 +7,9 @@ WORKDIR /opt/i5sing-web
 # copy source
 COPY . ./
 
+# set config
+RUN cp applcation.example.yml application.yml
+
 # Install deps
 RUN npm install
 

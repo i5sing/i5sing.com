@@ -3,6 +3,7 @@
  */
 import {WOW} from 'wowjs';
 import LazyLoad from 'vanilla-lazyload';
+import "jquery";
 
 import {app, store} from './app'
 

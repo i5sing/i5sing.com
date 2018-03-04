@@ -38,10 +38,10 @@
         },
         methods: {
             downloadMac: function () {
-                window.open("./download/darwin");
+                window.open("./download/darwin_x64");
             },
             downloadWin: function () {
-                window.open("./download/win32");
+                window.open("./download/win32_x64");
             }
         },
         components: {Btn}

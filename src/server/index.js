@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
         map: {html: 'ejs'}
     }));
 
-    syncToCDN();
+    // syncToCDN();
 } else {
     appServer.use(KoaViews(path.join(__dirname, './views'), {
         map: {html: 'ejs'}

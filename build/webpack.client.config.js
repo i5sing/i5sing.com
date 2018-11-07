@@ -80,7 +80,7 @@ if (process.env.NODE_ENV === 'production') {
 
     module.exports.output.filename = 'client-bundle.[hash].js';
     // module.exports.output.publicPath = 'http://static.i5sing.com/';
-    module.exports.output.publicPath = '/';
+    // module.exports.output.publicPath = '/';
 
     vueConfig.loaders = {
         less: ExtractTextPlugin.extract({

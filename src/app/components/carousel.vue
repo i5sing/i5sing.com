@@ -12,7 +12,7 @@
             <div class="carousel-wrapper">
                 <div id="carousel-hook" class="carousel">
                     <carousel-3d :width="650" :height="436" :autoplay="true" :autoplayHoverPause="true"
-                                 :autoplayTimeout="4000"
+                                 :autoplayTimeout="3000"
                                  :display="3" :border="0" :space="260" :controlsVisible="true" :perspective="0">
                         <slide :index="item.name" v-for="item in carousels">
                             <img :src="item.img"/>

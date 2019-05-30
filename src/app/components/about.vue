@@ -131,6 +131,5 @@
         margin: 0 auto;
         height: 155px;
         width: 530px;
-        opacity: 0;
     }
 </style>

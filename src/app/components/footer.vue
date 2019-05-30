@@ -10,7 +10,7 @@
                     </svg>
                 </a>&nbsp;&nbsp;
                 <a href="http://i5sing.com">i5SING</a>
-                <a href="https://electronjs.org/apps/i5sing">Electron官网</a>
+                <a style="margin-left: 10px" href="https://electronjs.org/apps/i5sing">Electron官网</a>
             </div>
             <div class="footer-center">©2016 - 2019. 辽ICP备16013530号</div>
             <div class="footer-right">

@@ -1,5 +1,9 @@
 <template>
     <div class="banner-wrapper image">
+        <iframe class="github"
+                src="https://ghbtns.com/github-btn.html?user=i5sing&repo=i5SING&type=star&count=true"
+                frameborder="0" scrolling="0"></iframe>
+        <a class="beta-download-btn" target="_blank" href="https://github.com/i5sing/i5SING/releases">Beta Download</a>
         <article class="banner image" id="banner">
             <div class="wrapper">
                 <div class="logo image wow slide-in-up"></div>
@@ -57,6 +61,7 @@
     }
 
     .banner-wrapper {
+        position: relative;
         background-size: cover;
     }
 
@@ -73,7 +78,6 @@
         background-size: 473px 95px;
         width: 473px;
         height: 95px;
-        opacity: 0;
     }
 
     .banner .subtitle {
@@ -83,7 +87,6 @@
         background-size: 473px 29px;
         width: 473px;
         height: 29px;
-        opacity: 0;
     }
 
     .banner .download-btn {
@@ -94,6 +97,25 @@
         margin-top: 40px;
         height: 130px;
         width: 515px;
-        opacity: 0;
+    }
+
+    .github {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 1000;
+        width: 81px;
+        height: 20px;
+    }
+
+    .beta-download-btn {
+        position: absolute;
+        top: 10px;
+        right: 100px;
+        z-index: 1000;
+        font-size: 14px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
     }
 </style>

@@ -69,7 +69,7 @@
     "nodemon": "^1.11.0",
     "nyc": "^10.0.0",
     "qiniu": "^7.2.1",
-    "siren-wave": "0.0.3",
+    "siren-wave": "0.1.0",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.4.0",

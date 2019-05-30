@@ -66,13 +66,19 @@
                 ]
             });
             this.siren.draw();
+            this.siren.stop();
+            this.startWave();
+
+            window.onscroll = () => {
+                this.startWave();
+            };
 
             window.onresize = () => {
                 this.siren.update({
                     width: waveEl.clientWidth
                 });
 
-                this.siren.draw();
+                this.startWave();
             }
         },
         methods: {
@@ -81,6 +87,17 @@
             },
             downloadWin: function () {
                 window.open("./download/win32_x64");
+            },
+            startWave: function () {
+                const interHeight = window.innerHeight;
+                const scrollTop = $(window).scrollTop();
+                const offsetTop = document.getElementById('about').offsetTop;
+                console.log(interHeight, scrollTop, offsetTop);
+                if ((interHeight + scrollTop) - 200 > offsetTop) {
+                    this.siren.draw();
+                } else {
+                    this.siren.stop();
+                }
             }
         },
         components: {Btn}

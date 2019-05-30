@@ -20,7 +20,7 @@
 
     export default {
         props: ['language'],
-        data (){
+        data() {
             return {
                 lang: getLang("en-US")
             }
@@ -73,6 +73,7 @@
         background-size: 473px 95px;
         width: 473px;
         height: 95px;
+        opacity: 0;
     }
 
     .banner .subtitle {
@@ -82,6 +83,7 @@
         background-size: 473px 29px;
         width: 473px;
         height: 29px;
+        opacity: 0;
     }
 
     .banner .download-btn {
@@ -92,5 +94,6 @@
         margin-top: 40px;
         height: 130px;
         width: 515px;
+        opacity: 0;
     }
 </style>

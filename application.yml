@@ -8,7 +8,6 @@ mysql:
   development:
     host: localhost
     user: root
-    password: root
     connectionLimit: 20
     queueLimit: 500
     database: i5sing

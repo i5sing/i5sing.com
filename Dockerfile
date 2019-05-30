@@ -1,4 +1,4 @@
-FROM node:6.9
+FROM node:10.16.0
 
 # Switch to /i5sing-web
 RUN mkdir -p /opt/i5sing-web
@@ -8,7 +8,8 @@ WORKDIR /opt/i5sing-web
 COPY . ./
 
 # Install deps
-RUN npm install
+RUN npm install yarn -g
+RUN yarn
 
 #Compile
 RUN npm run build

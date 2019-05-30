@@ -20,7 +20,7 @@
 
     export default {
         props: ['language'],
-        data (){
+        data() {
             return {
                 lang: getLang("en-US")
             }
@@ -131,5 +131,6 @@
         margin: 0 auto;
         height: 155px;
         width: 530px;
+        opacity: 0;
     }
 </style>

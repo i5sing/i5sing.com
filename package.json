@@ -4,10 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production babel-node src/server/index.js --ignore='node_modules'",
-    "dev": "cross-env NODE_ENV=development babel-node build/start.js --ignore='node_modules'",
+    "start": "cross-env NODE_ENV=production babel-node src/server/index.js",
+    "dev": "cross-env NODE_ENV=development babel-node build/start.js",
     "build": "./build/build.sh",
-    "babel-node": "babel-node --ignore='node_modules'",
+    "babel-node": "babel-node",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.server.config.js --progress",
     "test": "cross-env NODE_ENV=development nyc ava ./test",
@@ -42,11 +42,12 @@
     "memory-fs": "^0.3.0",
     "mysql": "github:mysqljs/mysql",
     "vue": "^2.1.10",
+    "vue-carousel-3d": "^0.2.0",
     "vue-router": "^2.1.1",
     "vue-server-renderer": "^2.1.10",
     "vue-template-compiler": "^2.1.10",
     "vuex": "^2.0.0",
-    "yml": "0.0.5"
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "ava": "^0.17.0",

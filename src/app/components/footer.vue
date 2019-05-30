@@ -10,8 +10,9 @@
                     </svg>
                 </a>&nbsp;&nbsp;
                 <a href="http://i5sing.com">i5SING</a>
+                <a href="https://electronjs.org/apps/i5sing">Electron官网</a>
             </div>
-            <div class="footer-center">©2016 - 2017. 辽ICP备16013530号</div>
+            <div class="footer-center">©2016 - 2019. 辽ICP备16013530号</div>
             <div class="footer-right">
                 Designed By <a href="http://weibo.com/323331314" target="_blank">宛安</a> &nbsp;&nbsp;
                 Developed By <a href="http://weibo.com/zfeng217" target="_blank">赵小峰</a>、

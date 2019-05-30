@@ -2,7 +2,7 @@
  * Created by zhaofeng on 2016/12/1.
  */
 "use strict";
-import "babel-polyfill";
+// import "babel-polyfill";
 import path from 'path';
 import Koa from 'koa';
 import Mount from 'koa-mount';

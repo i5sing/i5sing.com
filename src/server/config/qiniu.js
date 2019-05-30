@@ -4,7 +4,7 @@
 import qiniu from 'qiniu';
 import path from 'path';
 import fs from 'fs';
-import Yml from 'yml';
+import Yml from 'yamljs';
 
 const config = Yml.load(path.resolve(__dirname, '../../../', 'application.yml'));
 const qiniuConfig = config.qiniu || {};

@@ -4,13 +4,21 @@
             <div class="title wow slide-in-up" data-wow-delay="0.5s">轻盈上线</div>
             <div class="subtitle wow slide-in-up" data-wow-delay="1s">清新、极简，呈现全新体验方式</div>
         </div>
-        <!--<div class="carousel-arrows">-->
-        <!--<span class="arrow arrow-left image" v-on:click="next(loopIndex - 1)"></span>-->
-        <!--<span class="arrow arrow-right image" v-on:click="next(loopIndex + 1)"></span>-->
-        <!--</div>-->
+        <div class="carousel-arrows">
+            <span class="arrow arrow-left image"></span>
+            <span class="arrow arrow-right image"></span>
+        </div>
         <div class="wrapper">
             <div class="carousel-wrapper">
-                <div id="carousel-hook"></div>
+                <div id="carousel-hook" class="carousel">
+                    <carousel-3d :width="650" :height="436" :autoplay="true" :autoplayHoverPause="true"
+                                 :autoplayTimeout="4000"
+                                 :display="3" :border="0" :space="260" :controlsVisible="true" :perspective="0">
+                        <slide :index="item.name" v-for="item in carousels">
+                            <img :src="item.img"/>
+                        </slide>
+                    </carousel-3d>
+                </div>
             </div>
         </div>
     </article>
@@ -18,11 +26,11 @@
 <script>
     import getLang from '../../resources/lang';
     import carouselImages from '../../resources/images/carousel';
-    import Carousel from '../service/carousel';
+    import {Carousel3d, Slide} from 'vue-carousel-3d/src';
 
     export default {
         props: ['language'],
-        data (){
+        data() {
             return {
                 carousels: carouselImages,
                 current: 0,
@@ -37,10 +45,11 @@
 
         },
         mounted() {
-            this.carousel = new Carousel({
-                wrap: $('#carousel-hook'),
-                data: carouselImages
-            });
+
+        },
+        components: {
+            Carousel3d,
+            Slide
         }
     }
 </script>
@@ -72,19 +81,15 @@
         }
 
         .carousel-wrapper {
-            position: absolute;
-            top: 245px;
-            left: 50%;
+            padding-top: 245px;
             width: 100%;
-            transform: translate(-50%, 0);
         }
 
         .carousel-arrows {
             //TODO 暂时关闭左右箭头
-            display: none;
             position: absolute;
             width: 1050px;
-            top: 425px;
+            top: 462px;
             left: 50%;
             transform: translate(-50%, 0);
 

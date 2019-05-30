@@ -2,7 +2,7 @@
  * Created by zhaofeng on 2016/12/30.
  */
 import Mysql from 'mysql';
-import Yml from 'yml';
+import Yml from 'yamljs';
 import path from 'path';
 
 const config = Yml.load(path.resolve(__dirname, '../../../', 'application.yml'));

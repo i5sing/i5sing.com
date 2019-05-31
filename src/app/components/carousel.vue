@@ -11,7 +11,7 @@
         <div class="wrapper">
             <div class="carousel-wrapper">
                 <div id="carousel-hook" class="carousel">
-                    <carousel-3d :width="650" :height="436" :autoplay="true" :autoplayHoverPause="true"
+                    <carousel-3d :width="650" :height="435" :autoplay="true" :autoplayHoverPause="true"
                                  :autoplayTimeout="3000"
                                  :display="3" :border="0" :space="260" :controlsVisible="true" :perspective="0">
                         <slide :index="item.name" v-for="item in carousels">
@@ -81,7 +81,7 @@
         }
 
         .carousel-wrapper {
-            padding-top: 245px;
+            padding-top: 185px;
             width: 100%;
         }
 

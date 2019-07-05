@@ -10,12 +10,12 @@
                     </svg>
                 </a>&nbsp;&nbsp;
                 <a href="http://i5sing.com">i5SING</a>
-                <a style="margin-left: 10px" href="https://electronjs.org/apps/i5sing">Electron官网</a>
+                <a style="margin-left: 10px" href="https://electronjs.org/apps/i5sing">Electron Apps</a>
             </div>
             <div class="footer-center">©2016 - 2019. 辽ICP备16013530号</div>
             <div class="footer-right">
                 Designed By <a href="http://weibo.com/323331314" target="_blank">宛安</a> &nbsp;&nbsp;
-                Developed By <a href="http://weibo.com/zfeng217" target="_blank">赵小峰</a>、
+                Developed By <a href="https://github.com/miaowing" target="_blank">赵小峰</a>、
                 <a href="http://weibo.com/yedaodao90" target="_blank">叶刀刀</a>
                 <a href="https://github.com/i5sing" target="__blank">
                     <svg aria-hidden="true" class="mark-github" height="20" version="1.1" viewBox="0 0 16 16"

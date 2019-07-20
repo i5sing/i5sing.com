@@ -2,12 +2,8 @@ kind: pipeline
 name: i5sing website deploy
 
 trigger:
-  branch:
-    - master
-  event:
-    - push
-    - tag
   ref:
+    - refs/heads/master
     - refs/tags/v*
 steps:
   - name: build_docker_image

@@ -21,3 +21,4 @@ steps:
         from_secret: k8s_kube_token
       ca:
         from_secret: k8s_kube_ca
+      template: deployment.yaml

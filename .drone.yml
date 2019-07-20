@@ -20,7 +20,7 @@ steps:
         exclude:
           - master
   - name: deploy_on_kubernetes
-    image: vallard/drone-kube
+    image: zfeng/drone-kube
     settings:
       namespace: default
       server:

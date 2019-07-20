@@ -1,14 +1,12 @@
 kind: pipeline
-name: default
+name: i5sing website deploy
 
 trigger:
   branch:
-    include:
-      - master
+    - master
   event:
-    include:
-      - push
-      - tag
+    - push
+    - tag
   ref:
     - refs/tags/v*
 steps:

@@ -15,9 +15,6 @@ steps:
       branch:
         exclude:
           - master
-        event:
-          - push
-          - tag
       ref:
         - refs/tags/v*
   - name: deploy_on_kubernetes
@@ -35,9 +32,6 @@ steps:
       branch:
         include:
           - master
-        event:
-          - push
-          - tag
       ref:
         - refs/tags/v*
   - name: wechat

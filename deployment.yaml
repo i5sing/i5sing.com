@@ -16,7 +16,10 @@ spec:
         app: i5sing-web
     spec:
       containers:
-        - env:
+        - image: i5sing/i5sing-website:{{#if build.tag}}{{build.tag}}{{else}}latest{{/if}}
+          imagePullPolicy: IfNotPresent
+          name: i5sing
+          env:
             - name: MYSQL_PASSWORD
               value: i5sing
             - name: MYSQL_HOST
@@ -29,7 +32,4 @@ spec:
               value: "3306"
             - name: PORT
               value: "3033"
-          image: {{repo.owner}}/{{repo.name}}:{{build.tag}}
-          imagePullPolicy: IfNotPresent
-          name: i5sing
       restartPolicy: Always

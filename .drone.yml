@@ -1,6 +1,12 @@
 kind: pipeline
 name: default
 
+trigger:
+  branch:
+    include:
+      - master
+  ref:
+    - refs/tags/v*
 steps:
   - name: build_docker_image
     image: plugins/docker
@@ -11,12 +17,10 @@ steps:
         from_secret: docker_repository_username
       password:
         from_secret: docker_repository_password
-    trigger:
+    when:
       branch:
         exclude:
           - master
-      ref:
-        - refs/tags/v*
   - name: deploy_on_kubernetes
     image: vallard/drone-kube
     settings:
@@ -28,12 +32,6 @@ steps:
       ca:
         from_secret: k8s_kube_ca
       template: deployment.yaml
-    trigger:
-      branch:
-        include:
-          - master
-      ref:
-        - refs/tags/v*
   - name: wechat
     image: lizheming/drone-wechat
     settings:
@@ -56,10 +54,6 @@ steps:
           build {{build.number}} failed. Fix me please.
         {% endif %}
     when:
-      status:
-        - success
-        - failure
-    trigger:
       status:
         - success
         - failure

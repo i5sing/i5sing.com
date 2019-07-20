@@ -29,7 +29,7 @@ spec:
               value: "3306"
             - name: PORT
               value: "3033"
-          image: {{ repo.owner }}/{{ repo.name }}:{{ build.tag }}
+          image: {{repo.owner}}/{{repo.name}}:{{build.tag}}
           imagePullPolicy: IfNotPresent
           name: i5sing
       restartPolicy: Always

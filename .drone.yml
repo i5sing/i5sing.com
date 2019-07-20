@@ -1,5 +1,5 @@
 kind: pipeline
-name: i5sing website deploy
+name: i5sing_website_deploy
 
 trigger:
   ref:

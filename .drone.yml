@@ -1,0 +1,17 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: docker
+    image: plugins/docker
+    settings:
+      repo: i5sing/i5sing-website
+      auto_tag: true
+      username:
+        from_secret: docker_repository_username
+      password:
+        from_secret: docker_repository_password
+  - name: run
+    image: vallard/drone-kube
+    settings:
+      namespace: default

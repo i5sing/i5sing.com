@@ -1,0 +1,35 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    app: i5sing-web
+  name: i5sing-web
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: i5sing-web
+  template:
+    metadata:
+      labels:
+        app: i5sing-web
+    spec:
+      containers:
+        - env:
+            - name: MYSQL_PASSWORD
+              value: i5sing
+            - name: MYSQL_HOST
+              value: mysql-service
+            - name: MYSQL_USER
+              value: i5sing
+            - name: MYSQL_DATABASE
+              value: i5sing
+            - name: MYSQL_PORT
+              value: '3306'
+            - name: PORT
+              value: '3033'
+          image: 'i5sing/i5sing-website'
+          imagePullPolicy: IfNotPresent
+          name: i5sing
+      restartPolicy: Always

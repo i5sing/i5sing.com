@@ -22,3 +22,24 @@ steps:
       ca:
         from_secret: k8s_kube_ca
       template: deployment.yaml
+  - name: wechat
+    image: lizheming/drone-wechat
+    settings:
+      corpid:
+        from_secret: wechat_corp_id
+      corp_secret:
+        from_secret: wechat_corp_secret
+      agent_id:
+        from_secret: wechat_agent_id
+      to_user: ZhaoFeng
+      to_tag: ${DRONE_REPO_NAME}
+      msg_url: ${DRONE_BUILD_LINK}
+      safe: 1
+      btn_txt: more
+      title: ${DRONE_REPO_NAME}
+      message: >
+        {%if success %}
+          build {{build.number}} succeeded. Good job.
+        {% else %}
+          build {{build.number}} failed. Fix me please.
+        {% endif %}

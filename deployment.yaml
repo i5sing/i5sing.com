@@ -26,9 +26,9 @@ spec:
             - name: MYSQL_DATABASE
               value: i5sing
             - name: MYSQL_PORT
-              value: '3306'
+              value: "3306"
             - name: PORT
-              value: '3033'
+              value: "3033"
           image: {{ repo.owner }}/{{ repo.name }}:{{ build.tag }}
           imagePullPolicy: IfNotPresent
           name: i5sing

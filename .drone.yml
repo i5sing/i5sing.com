@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 
 steps:
-  - name: build docker image
+  - name: build_docker_image
     image: plugins/docker
     settings:
       repo: i5sing/i5sing-website
@@ -11,7 +11,7 @@ steps:
         from_secret: docker_repository_username
       password:
         from_secret: docker_repository_password
-  - name: deploy on kubernetes
+  - name: deploy_on_kubernetes
     image: vallard/drone-kube
     settings:
       namespace: default

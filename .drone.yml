@@ -15,4 +15,7 @@ steps:
     image: vallard/drone-kube
     settings:
       namespace: default
-      server: https://172.21.0.1
+      server:
+        from_secret: k8s_kube_server
+      token:
+        from_secret: k8s_kube_token

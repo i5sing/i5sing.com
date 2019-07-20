@@ -15,10 +15,6 @@ steps:
         from_secret: docker_repository_username
       password:
         from_secret: docker_repository_password
-    when:
-      branch:
-        exclude:
-          - master
   - name: deploy_on_kubernetes
     image: zfeng/drone-kube
     settings:

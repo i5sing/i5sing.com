@@ -5,6 +5,10 @@ trigger:
   branch:
     include:
       - master
+  event:
+    include:
+      - push
+      - tag
   ref:
     - refs/tags/v*
 steps:

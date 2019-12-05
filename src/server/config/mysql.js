@@ -30,6 +30,7 @@ export const pool = Mysql.createPool({
 export async function getConnection() {
     return new Promise((resolve, reject) => {
         pool.getConnection((err, conn) => {
+            conn.release();
             if (err) {
                 return reject(err);
             }
@@ -48,11 +49,11 @@ export async function query(sql, params = []) {
     const conn = await getConnection();
     return new Promise((resolve, reject) => {
         conn.query(sql, params, (err, rows) => {
+            conn.release();
             if (err) {
                 return reject(err);
             }
             resolve(rows);
-            conn.release();
         })
     })
 }
@@ -67,6 +68,7 @@ export async function query(sql, params = []) {
 export async function connectionQuery(conn, sql, params = []) {
     return new Promise((resolve, reject) => {
         conn.query(sql, params, (err, rows) => {
+            conn.release();
             if (err) {
                 return reject(err);
             }
@@ -83,6 +85,7 @@ export async function beginTransaction() {
     const conn = await getConnection();
     return new Promise((resolve, reject) => {
         conn.beginTransaction(err => {
+            conn.release();
             if (err) return reject(err);
 
             resolve(conn);

@@ -30,7 +30,6 @@ export const pool = Mysql.createPool({
 export async function getConnection() {
     return new Promise((resolve, reject) => {
         pool.getConnection((err, conn) => {
-            conn.release();
             if (err) {
                 return reject(err);
             }
@@ -68,7 +67,6 @@ export async function query(sql, params = []) {
 export async function connectionQuery(conn, sql, params = []) {
     return new Promise((resolve, reject) => {
         conn.query(sql, params, (err, rows) => {
-            conn.release();
             if (err) {
                 return reject(err);
             }

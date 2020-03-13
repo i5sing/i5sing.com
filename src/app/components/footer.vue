@@ -12,7 +12,10 @@
                 <a href="http://i5sing.com">i5SING</a>
                 <a style="margin-left: 10px" href="https://electronjs.org/apps/i5sing">Electron Apps</a>
             </div>
-            <div class="footer-center">©2016 - 2019. 辽ICP备16013530号</div>
+            <div class="footer-center">
+                ©2016 - 2019.
+                <a href="http://beian.miit.gov.cn" target="_blank">辽ICP备16013530号</a>
+            </div>
             <div class="footer-right">
                 Designed By <a href="http://weibo.com/323331314" target="_blank">宛安</a> &nbsp;&nbsp;
                 Developed By <a href="https://github.com/miaowing" target="_blank">赵小峰</a>、

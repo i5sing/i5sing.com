@@ -23,6 +23,6 @@ before_install:
   - npm i -g yarn
   - if [ "$TRAVIS_BRANCH" = "master" ]; then export IMAGE_VERSION="latest"; else export IMAGE_VERSION="$TRAVIS_BRANCH"; fi
 script:
-  - docker build -t i5sing/i5sing-website@"$IMAGE_VERSION" .
+  - docker build -t i5sing/i5sing-website:"$IMAGE_VERSION" .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push i5sing/i5sing-website@"$IMAGE_VERSION"
+  - docker push i5sing/i5sing-website:"$IMAGE_VERSION"

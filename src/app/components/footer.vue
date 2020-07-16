@@ -11,6 +11,7 @@
                 </a>&nbsp;&nbsp;
                 <a href="http://i5sing.com">i5SING</a>
                 <a style="margin-left: 10px" href="https://electronjs.org/apps/i5sing">Electron Apps</a>
+                <a style="margin-left: 10px" href="https://lemon.qq.com/lab/app/i5sing.html">腾讯柠檬精选</a>
             </div>
             <div class="footer-center">
                 ©2016 - 2019.

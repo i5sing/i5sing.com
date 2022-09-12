@@ -1,5 +1,8 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml">
-    <button type="button" class="btn download-btn download-bg" v-on:click="action()">
+    <button
+        type="button"
+        class="btn download-btn download-bg"
+        v-on:click="action()">
         <svg v-show="type == 'mac'" xmlns="http://www.w3.org/2000/svg" width="18px" height="20px" viewBox="0 0 35 40"
              style="vertical-align: text-top; padding-top: 0; padding-right: 10px;">
             <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
@@ -7,45 +10,43 @@
         </svg>
         <svg v-show="type == 'win'" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 36 36"
              style="vertical-align: text-top; padding-top: 2px; padding-right: 10px;">
-            <path fill-rule="evenodd"  fill="rgb(255, 255, 255)"
+            <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
                   d="M16.992,33.292 L16.992,18.995 L36.000,18.995 L36.000,36.000 L16.992,33.292 ZM16.992,2.708 L36.000,-0.001 L36.000,16.973 L16.992,16.973 L16.992,2.708 ZM-0.000,18.995 L15.014,18.995 L15.014,33.119 L-0.000,31.035 L-0.000,18.995 ZM-0.000,4.965 L15.014,2.881 L15.014,17.004 L-0.000,17.004 L-0.000,4.965 Z"/>
         </svg>
-        {{value}}
+        {{ value }}
     </button>
 </template>
 <script>
-    export default {
-        props: ['value', 'action', 'type'],
-        data (){
-            return {
+export default {
+    props: ['value', 'action', 'type'],
+    data() {
+        return {}
+    },
+    beforeUpdate: function () {
 
-            }
-        },
-        beforeUpdate: function () {
-
-        },
-        components: {}
-    }
+    },
+    components: {}
+}
 </script>
 <style lang="less" scoped>
-    .btn {
-        margin: 0 8px;
-        outline: none;
-        border: none;
-        border-radius: 4px;
-        height: 50px;
-        width: 217px;
-        cursor: pointer;
-    }
+.btn {
+    margin: 0 8px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    height: 50px;
+    width: 217px;
+    cursor: pointer;
+}
 
-    .btn.download-btn {
-        font-size: 16px;
-        color: #fff;
-        background-color: #f77189;
-        /*box-shadow: 2px 2px 30px 10px rgba(243, 111, 135, 0.1);*/
-    }
+.btn.download-btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #f77189;
+    /*box-shadow: 2px 2px 30px 10px rgba(243, 111, 135, 0.1);*/
+}
 
-    .btn.download-btn:hover {
-        background-color: #ff7991;
-    }
+.btn.download-btn:hover {
+    background-color: #ff7991;
+}
 </style>

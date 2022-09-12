@@ -10,6 +10,9 @@
         <div class="btn-group about-btn-group image wow slide-in-up" data-wow-delay="0.5s">
             <Btn :action="downloadMac" :value="lang.about.DOWNLOAD_MAC_BUTTON" type="mac"/>
             <Btn :action="downloadWin" :value="lang.about.DOWNLOAD_WIN_BUTTON" type="win"/>
+            <a class="btn-apple-silicon" v-on:click="downloadAppleSilicon">
+                {{ lang.banner.DOWNLOAD_MAC_APPLE_SILICON_BUTTON }}
+            </a>
         </div>
     </article>
 </template>
@@ -85,6 +88,9 @@
             downloadMac: function () {
                 window.open("./download/darwin_x64");
             },
+            downloadAppleSilicon: function () {
+                window.open("./download/darwin_arm64");
+            },
             downloadWin: function () {
                 window.open("./download/win32_x64");
             },
@@ -144,9 +150,19 @@
         margin-top: 50px;
     }
 
+    .about .btn-apple-silicon {
+        cursor: pointer;
+        color: #fffefe;
+        position: absolute;
+        left: 35px;
+        bottom: 30px;
+        font-size: 16px;
+    }
+
     .about-btn-group {
         margin: 0 auto;
         height: 155px;
         width: 530px;
+        position: relative;
     }
 </style>

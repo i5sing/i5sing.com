@@ -3,6 +3,7 @@
  */
 export const about = {
     DOWNLOAD_MAC_BUTTON: 'i5SING for Mac',
+    DOWNLOAD_MAC_APPLE_SILICON_BUTTON: 'i5SING for Apple Silicon',
     DOWNLOAD_WIN_BUTTON: 'i5SING for Win',
     DESCRIPTION: '5SING (非官方) 客户端，更多惊喜等你体验'
 };
@@ -10,6 +11,7 @@ export const about = {
 export const banner = {
     SUB_TITLE: '爱音乐，爱原创，爱生活，爱5SING',
     DOWNLOAD_MAC_BUTTON: 'i5SING for Mac',
+    DOWNLOAD_MAC_APPLE_SILICON_BUTTON: 'i5SING for Apple Silicon',
     DOWNLOAD_WIN_BUTTON: 'i5SING for Win'
 };
 

@@ -1,7 +1,7 @@
 /**
  * Created by zhaofeng on 2016/12/30.
  */
-import Mysql from 'mysql';
+import Mysql from 'mysql2';
 import Yml from 'yamljs';
 import path from 'path';
 

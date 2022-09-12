@@ -40,7 +40,7 @@
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.0",
     "memory-fs": "^0.3.0",
-    "mysql": "github:mysqljs/mysql",
+    "mysql2": "^2.3.3",
     "vue": "^2.1.10",
     "vue-carousel-3d": "^0.2.0",
     "vue-router": "^2.1.1",

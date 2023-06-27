@@ -7,15 +7,17 @@ import VueRouter from 'vue-router';
 import store from './vuex';
 import App from './app.vue';
 
-import router from './router/index';
+import { createRouter } from './router/index';
 
 Vue.use(VueRouter);
 Vue.use(Carousel3d);
 
-const app = new Vue({
-    router,
-    store,
-    render: h => h(App)
-});
-
-export {app, router, store};
+export const createApp = () => {
+    const router = createRouter();
+    const app = new Vue({
+        router,
+        store,
+        render: h => h(App)
+    });
+    return { app, router, store };
+}

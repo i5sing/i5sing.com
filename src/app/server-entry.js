@@ -1,20 +1,21 @@
+import { createApp } from "./app";
+
 /**
  * Created by zhaofeng on 2016/12/2.
  */
-import {app, router, store} from './app';
-
 const isDev = process.env.NODE_ENV !== 'production';
 
 export default function (context) {
     const s = isDev && Date.now();
 
+    const { app, router, store } = createApp();
     // set router's location
     router.push(context.url);
     const matchedComponents = router.getMatchedComponents();
 
     // no matched routes
     if (!matchedComponents.length) {
-        return Promise.reject({code: '404'});
+        return Promise.reject({ code: '404' });
     }
 
     // Call preFetch hooks on components matched by the route.
